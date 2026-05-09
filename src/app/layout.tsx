@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { Outfit, Literata } from 'next/font/google';
 import { WandSparkles } from 'lucide-react';
 import './globals.css';
@@ -25,7 +25,7 @@ const navItems = [
   { href: '/generate', label: 'Generate' },
   { href: '/inspirasi', label: 'Inspirasi' },
   { href: '/produk', label: 'Produk' },
-];
+] as const;
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (

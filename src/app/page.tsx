@@ -11,7 +11,7 @@ const dimensions = ['3x3', '3x4', '4x4', 'custom'] as const;
 const styles = ['Minimalis', 'Japandi', 'Industrial', 'Skandinavia', 'Bohemian', 'Modern'] as const;
 const colors = ['Netral hangat', 'Putih bersih', 'Kayu alami', 'Abu gelap', 'Pastel lembut', 'Hitam elegan'] as const;
 
-const iconMap: Record<string, typeof BedDouble> = {
+const iconMap: Record<(typeof roomTypes)[number], typeof BedDouble> = {
   'Kamar Tidur': BedDouble, 'Ruang Tamu': Sofa, 'Dapur Mini': CookingPot,
   'Kamar Mandi': Sparkles, 'Area Kerja': WandSparkles,
 };
@@ -152,8 +152,8 @@ export default function HomePage() {
                   <RoomIcon size={40} className="text-[#C4B5A5]" />
                 </div>
                 <div className="p-4 space-y-1">
-                  <h3 className="font-semibold text-[#2D2A26]">{d.title || `${d.roomType} ${d.style}`}</h3>
-                  <p className="text-sm text-[#7A7268]">{d.style} · {d.colorPalette}</p>
+                  <h3 className="font-semibold text-[#2D2A26]">{`${d.roomType} ${d.style}`}</h3>
+                  <p className="text-sm text-[#7A7268]">{d.style}</p>
                 </div>
               </Link>
             ))}
